@@ -1,12 +1,17 @@
-<?php 
-    $para = "otaviogabriel.alves.barbosa@gmail.com";
-    $assunto = "Teste";
-    $corpo = "Este e um teste de email";
-    $headers = "From:otaviogabriel.alves.barbosa@gmail.com";
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
 
-    if(mail($para, $assunto, $corpo, $headers)) {
-        print("Email enviado com sucesso");
+    $to = 'root@localhost.com';
+    $subject = 'Teste de Email';
+    $message = 'Este é um teste de envio de email usando PHP.';
+    $headers = 'From: root@localhost.com' . "\r\n" .
+            'Reply-To: root@localhost.com';
+
+    if(mail($to, $subject, $message, $headers)) {
+        echo 'Email enviado com sucesso!';
     } else {
-        print("Falha ao enviar email");
+        echo 'Falha ao enviar email.';
+        error_log("Desgraçaa", 0);
     }
 ?>
